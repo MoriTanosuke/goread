@@ -75,6 +75,7 @@ func init() {
 	router.Handle("/user/save-options", mpg.NewHandler(SaveOptions)).Name("save-options")
 	router.Handle("/user/set-star", mpg.NewHandler(SetStar)).Name("set-star")
 	router.Handle("/user/upload-opml", mpg.NewHandler(UploadOpml)).Name("upload-opml")
+	router.Handle("/user/search", mpg.NewHandler(Search)).Name("search")
 
 	router.Handle("/admin/all-feeds", mpg.NewHandler(AllFeeds)).Name("all-feeds")
 	router.Handle("/admin/all-feeds-opml", mpg.NewHandler(AllFeedsOpml)).Name("all-feeds-opml")

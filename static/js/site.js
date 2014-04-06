@@ -347,6 +347,19 @@ goReadAppModule.controller('GoreadCtrl', function($scope, $http, $timeout, $wind
 		else $scope.unread.current = $scope.unread.all;
 	};
 
+	//TODO add searchterm later
+	$scope.search = function() {
+		console.log("searching!");
+		//TODO start search for 'searchterm'
+		$scope.http('POST', '/user/search', {
+			searchterm: 'test'
+		}).success(function(data) {
+			console.log(data);
+		});
+		//TODO return results
+		//TODO call function to display results
+	}
+
 	$scope.markReadStories = [];
 	$scope.markAllRead = function(story) {
 		if (!$scope.dispStories.length) return;

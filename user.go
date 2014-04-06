@@ -470,6 +470,23 @@ func ListFeeds(c mpg.Context, w http.ResponseWriter, r *http.Request) {
 	})
 }
 
+func Search(c mpg.Context, w http.ResponseWriter, r *http.Request) {
+	searchterm := r.FormValue("searchterm")
+	stories := ""
+	cursor := ""
+	//TODO search for stories
+	//https://developers.google.com/appengine/docs/go/datastore/queries#Go_Query_structure
+	b, _ := json.Marshal(struct {
+		Cursor	string
+		Stories	string //[]*Story
+	}{
+		//TODO return searchterm as cursor until we're really searching something
+		Cursor: cursor + searchterm,
+		Stories: stories,
+	})
+	w.Write(b)
+}
+
 func MarkRead(c mpg.Context, w http.ResponseWriter, r *http.Request) {
 	cu := user.Current(c)
 	gn := goon.FromContext(c)
